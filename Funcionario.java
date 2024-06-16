@@ -10,11 +10,11 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
-    public String getNome() {
+    public String getNomeFuncionario() {
         return nomeFuncionario;
     }
 
-    public void setNome(String nome) {
+    public void setNomeFuncionario(String nomeFuncionario) {
         this.nomeFuncionario = nomeFuncionario;
     }
 

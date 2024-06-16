@@ -56,6 +56,7 @@ public class Emprestimo {
     public void finalizarEmprestimo() {
         this.ativo = false;
         livro.setLivroDisponivel(true);
+        membro.adicionarEmprestimoAoHistorico(this);
     }
 
 }

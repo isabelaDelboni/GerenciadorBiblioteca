@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Membro {
     private String nome;
     private int idMembro;
     private String email;
     private String telefone;
     private boolean ativo;
+    private List<Emprestimo> historicoEmprestimos;
 
     public Membro(String nome, int idMembro, String email, String telefone, boolean ativo) {
         this.nome = nome;
@@ -11,6 +15,7 @@ public class Membro {
         this.email = email;
         this.telefone = telefone;
         this.ativo = ativo;
+        this.historicoEmprestimos = new ArrayList<>();
     }
 
     public String getNome() {
@@ -51,6 +56,14 @@ public class Membro {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public List<Emprestimo> getHistoricoEmprestimos() {
+        return historicoEmprestimos;
+    }
+
+    public void adicionarEmprestimoAoHistorico(Emprestimo emprestimo) {
+        historicoEmprestimos.add(emprestimo);
     }
 
 }
