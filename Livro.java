@@ -1,15 +1,15 @@
-public class Livros{
+public class Livro{
 
     private String titulo;
     private String autor;
-    private Categoria categoriaLivro;
+    private CategoriaLivro categoria;
     private int idLivro;
     private boolean livroDisponivel = true;
 
-    public Livros(String titulo, String autor, Categoria categoriaLivro, int idLivro, boolean livroDisponivel) {
+    public Livro(String titulo, String autor, CategoriaLivro categoria, int idLivro, boolean livroDisponivel) {
         this.titulo = titulo;
         this.autor = autor;
-        this.categoriaLivro = categoriaLivro;
+        this.categoria = categoria;
         this.idLivro = idLivro;
         this.livroDisponivel = livroDisponivel;
     }
@@ -38,12 +38,12 @@ public class Livros{
         this.idLivro = idLivro;
     }
 
-    public Categoria getCategoriaLivro() {
-        return categoriaLivro;
+    public CategoriaLivro getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaLivro(Categoria categoriaLivro) {
-        this.categoriaLivro = categoriaLivro;
+    public void setCategoria(CategoriaLivro categoria) {
+        this.categoria = categoria;
     }
 
     public String getAutor() {

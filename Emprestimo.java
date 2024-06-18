@@ -2,26 +2,26 @@ import java.time.LocalDate;
 
 public class Emprestimo {
 
-    private Livros livro;
+    private Livro livro;
     private Membro membro;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-    private boolean ativo;
+    private StatusEmprestimo status;
 
-    public Emprestimo(Livros livro, Membro membro, LocalDate dataInicio, LocalDate dataFim) {
+    public Emprestimo(Livro livro, Membro membro, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
         this.livro = livro;
         this.membro = membro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.ativo = true;
+        this.status = status;
         livro.setLivroDisponivel(false);
     }
 
-    public Livros getLivro() {
+    public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(Livros livro) {
+    public void setLivro(Livro livro) {
         this.livro = livro;
     }
 
@@ -49,14 +49,18 @@ public class Emprestimo {
         this.dataFim = dataFim;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+    public StatusEmprestimo getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEmprestimo status) {
+        this.status = status;
     }
 
     public void finalizarEmprestimo() {
-        this.ativo = false;
         livro.setLivroDisponivel(true);
         membro.adicionarEmprestimoAoHistorico(this);
+        setStatus(StatusEmprestimo.RETORNADO);
     }
 
 }

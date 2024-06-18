@@ -2,12 +2,12 @@ public class Funcionario {
 
     private String nomeFuncionario;
     private int idFuncionario;
-    private String cargo;
+    private FuncaoFuncionario funcao;
 
-    public Funcionario(String nomeFuncionario, int idFuncionario, String cargo){
+    public Funcionario(String nomeFuncionario, int idFuncionario, FuncaoFuncionario funcao){
         this.nomeFuncionario = nomeFuncionario;
         this.idFuncionario = idFuncionario;
-        this.cargo = cargo;
+        this.funcao = funcao;
     }
 
     public String getNomeFuncionario() {
@@ -26,12 +26,12 @@ public class Funcionario {
         this.idFuncionario = idFuncionario;
     }
 
-    public String getCargo() {
-        return cargo;
+    public FuncaoFuncionario getfuncao() {
+        return funcao;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setCargo(FuncaoFuncionario funcao) {
+        this.funcao = funcao;
     }
 
 
