@@ -1,28 +1,18 @@
-public class Funcionario {
-
-    private String nomeFuncionario;
-    private int idFuncionario;
+public class Funcionario extends Person{
+    private String idFuncionario;
     private FuncaoFuncionario funcao;
 
-    public Funcionario(String nomeFuncionario, int idFuncionario, FuncaoFuncionario funcao){
-        this.nomeFuncionario = nomeFuncionario;
+    public Funcionario(String nome, String idFuncionario, FuncaoFuncionario funcao){
+        super(nome, idFuncionario);
         this.idFuncionario = idFuncionario;
         this.funcao = funcao;
     }
 
-    public String getNomeFuncionario() {
-        return nomeFuncionario;
-    }
-
-    public void setNomeFuncionario(String nomeFuncionario) {
-        this.nomeFuncionario = nomeFuncionario;
-    }
-
-    public int getIdFuncionario() {
+    public String getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(int idFuncionario) {
+    public void setIdFuncionario(String idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 
@@ -34,5 +24,9 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
+    @Override
+    public void exibirFuncao() {
+        System.out.println("Função: " + funcao);
+    }
 
 }

@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Membro {
+public class Membro extends Person {
     private String nome;
-    private int idMembro;
+    private String idMembro;
     private String email;
     private String telefone;
     private boolean ativo;
     private List<Emprestimo> historicoEmprestimos;
 
-    public Membro(String nome, int idMembro, String email, String telefone, boolean ativo) {
+    public Membro(String nome, String idMembro, String email, String telefone, boolean ativo) {
+        super(nome, idMembro);
         this.nome = nome;
         this.idMembro = idMembro;
         this.email = email;
@@ -26,11 +27,11 @@ public class Membro {
         this.nome = nome;
     }
 
-    public int getIdMembro() {
+    public String getIdMembro() {
         return idMembro;
     }
 
-    public void setIdMembro(int idMembro) {
+    public void setIdMembro(String idMembro) {
         this.idMembro = idMembro;
     }
 
@@ -64,6 +65,11 @@ public class Membro {
 
     public void adicionarEmprestimoAoHistorico(Emprestimo emprestimo) {
         historicoEmprestimos.add(emprestimo);
+    }
+
+    @Override
+    public void exibirFuncao() {
+        System.out.println("Membro da biblioteca");
     }
 
 }
