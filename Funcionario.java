@@ -1,26 +1,36 @@
-public class Funcionario extends Person{
-    private String idFuncionario;
-    private FuncaoFuncionario funcao;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Funcionario(String nome, String idFuncionario, FuncaoFuncionario funcao){
-        super(nome, idFuncionario);
-        this.idFuncionario = idFuncionario;
+import javax.print.DocFlavor.STRING;
+
+public class Funcionario extends Pessoa {
+    // private int idFuncionario;
+    private String funcao;
+    private static int count;
+
+    List<Funcionario> funcionarios = new ArrayList<>();
+
+    public Funcionario(String nome, String funcao) {
+
+        super(nome, count);
+        /* this.idFuncionario = (count++); */
         this.funcao = funcao;
+
     }
 
-    public String getIdFuncionario() {
-        return idFuncionario;
-    }
+    // public int getIdFuncionario() {
+    // return idFuncionario;
+    // }
 
-    public void setIdFuncionario(String idFuncionario) {
-        this.idFuncionario = idFuncionario;
-    }
+    // public void setIdFuncionario(int idFuncionario) {
+    // this.idFuncionario = idFuncionario;
+    // }
 
-    public FuncaoFuncionario getfuncao() {
+    public String getfuncao() {
         return funcao;
     }
 
-    public void setCargo(FuncaoFuncionario funcao) {
+    public void setCargo(String funcao) {
         this.funcao = funcao;
     }
 
