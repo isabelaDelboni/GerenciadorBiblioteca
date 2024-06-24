@@ -3,48 +3,56 @@ import java.util.List;
 
 public class Livraria {
     private List<Livro> livros;
-    private List<Membro> mebros;
+    private List<Membro> membros;
     private List<Emprestimo> emprestimos;
     private List<Funcionario> funcionarios;
 
+    private GerenciadorLivros gerenciadorLivros;
+    private GerenciadorMembros gerenciadorMembros;
+    private GerenciadorEmprestimo gerenciadorEmprestimos;
+    private GerenciadorFuncionario gerenciadorFuncionarios;
+
     public Livraria() {
         this.livros = new ArrayList<>();
-        this.mebros = new ArrayList<>();
+        this.membros = new ArrayList<>();
         this.emprestimos = new ArrayList<>();
         this.funcionarios = new ArrayList<>();
+
+        this.gerenciadorLivros = new GerenciadorLivros();
+        this.gerenciadorMembros = new GerenciadorMembros();
+        this.gerenciadorEmprestimos = new GerenciadorEmprestimo();
+        this.gerenciadorFuncionarios = new GerenciadorFuncionario();
     }
 
     public List<Livro> getLivros() {
         return livros;
     }
 
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
-    }
-
-    public List<Membro> getMebros() {
-        return mebros;
-    }
-
-    public void setMebros(List<Membro> mebros) {
-        this.mebros = mebros;
+    public List<Membro> getMembros() {
+        return membros;
     }
 
     public List<Emprestimo> getEmprestimos() {
         return emprestimos;
     }
 
-    public void setEmprestimos(List<Emprestimo> emprestimos) {
-        this.emprestimos = emprestimos;
-    }
-
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
 
-    public void setFuncionarios(List<Funcionario> funcionarios) {
-        this.funcionarios = funcionarios;
+    public GerenciadorLivros getGerenciadorLivros() {
+        return gerenciadorLivros;
     }
 
+    public GerenciadorMembros getGerenciadorMembros() {
+        return gerenciadorMembros;
+    }
 
+    public GerenciadorEmprestimo getGerenciadorEmprestimos() {
+        return gerenciadorEmprestimos;
+    }
+
+    public GerenciadorFuncionario getGerenciadorFuncionarios() {
+        return gerenciadorFuncionarios;
+    }
 }

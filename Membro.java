@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Membro extends Person {
+public class Membro extends Pessoa {
     private String nome;
     private String idMembro;
     private String email;
@@ -69,7 +69,7 @@ public class Membro extends Person {
 
     @Override
     public void exibirFuncao() {
-        System.out.println("Membro da biblioteca");
+        System.out.println("Função: Membro da biblioteca");
     }
 
 }

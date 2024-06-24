@@ -26,4 +26,18 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
         }
     }
 
+    @Override
+    public List<Livro> listar() {
+        return livros;
+    }
+
+    public Livro buscaPorId(int id) {
+        for (Livro livro : livros) {
+            if (livro.getIdLivro() == id) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
 }

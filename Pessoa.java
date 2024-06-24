@@ -1,8 +1,8 @@
-public abstract class Person {
+public abstract class Pessoa {
     private String nome;
     private String id;
 
-    public Person(String nome, String id) {
+    public Pessoa(String nome, String id) {
         this.nome = nome;
         this.id = id;
     }

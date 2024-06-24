@@ -3,7 +3,7 @@ public enum StatusEmprestimo implements DescricaoEnum{
     RETORNADO("Retornado"),
     ATRASADO("Atrasado");
     
-    String descricao;
+    private String descricao;
 
     StatusEmprestimo(String descricao) {
         this.descricao = descricao;

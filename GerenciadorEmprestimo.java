@@ -1,12 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class GerenciadorEmprestimo implements Gerenciador<Emprestimo>{
-    private List<Emprestimo> emprestimos;
-
-    public GerenciadorEmprestimo() {
-        this.emprestimos = new ArrayList<>();
-    }
+public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
+    private List<Emprestimo> emprestimos = new ArrayList<>();
 
     @Override
     public void add(Emprestimo emprestimo) {
@@ -24,5 +20,10 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo>{
         if (index != -1) {
             emprestimos.set(index, emprestimo);
         }
+    }
+
+    @Override
+    public List<Emprestimo> listar() {
+        return emprestimos;
     }
 }

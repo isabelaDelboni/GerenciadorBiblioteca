@@ -25,4 +25,9 @@ public class GerenciadorFuncionario implements Gerenciador<Funcionario> {
             funcionarios.set(index, funcionario);
         }
     }
+
+    @Override
+    public List<Funcionario> listar() {
+        return funcionarios;
+    }
 }

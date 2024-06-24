@@ -1,15 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuscaBiblioteca implements Busca {
-    private List<Livro> livros;
-
-    public BuscaBiblioteca(List<Livro> livros) {
-        this.livros = livros;
-    }
-
+public class BuscaLivraria implements Busca<Livro> {
     @Override
-    public List<Livro> buscaPorNome(String nome) {
+    public List<Livro> buscaPorNome(List<Livro> livros, String nome) {
         List<Livro> resultados = new ArrayList<>();
         for (Livro livro : livros) {
             if (livro.getTitulo().contains(nome)) {
@@ -20,9 +14,9 @@ public class BuscaBiblioteca implements Busca {
     }
 
     @Override
-    public Livro buscaPorId(String id) {
+    public Livro buscaPorId(List<Livro> livros, int id) {
         for (Livro livro : livros) {
-            if (id.equals(livro.getIdLivro())) {
+            if (id == (livro.getIdLivro())) {
                 return livro;
             }
         }

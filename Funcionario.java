@@ -1,4 +1,4 @@
-public class Funcionario extends Person{
+public class Funcionario extends Pessoa{
     private String idFuncionario;
     private FuncaoFuncionario funcao;
 
@@ -26,7 +26,7 @@ public class Funcionario extends Person{
 
     @Override
     public void exibirFuncao() {
-        System.out.println("Função: " + funcao);
+        System.out.println("Função: " + funcao.getDescricao());
     }
 
 }
