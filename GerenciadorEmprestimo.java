@@ -2,27 +2,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorEmprestimo implements Gerenciador<Emprestimo>{
-    private List<Emprestimo> emprestimos;
-
-    public GerenciadorEmprestimo() {
-        this.emprestimos = new ArrayList<>();
-    }
-
     @Override
-    public void add(Emprestimo emprestimo) {
+    public void add(List<Emprestimo> emprestimos, Emprestimo emprestimo) {
         emprestimos.add(emprestimo);
     }
 
     @Override
-    public void remove(Emprestimo emprestimo) {
+    public void remove(List<Emprestimo> emprestimos, Emprestimo emprestimo) {
         emprestimos.remove(emprestimo);
     }
 
     @Override
-    public void update(Emprestimo emprestimo) {
+    public void update(List<Emprestimo> emprestimos, Emprestimo emprestimo) {
         int index = emprestimos.indexOf(emprestimo);
         if (index != -1) {
             emprestimos.set(index, emprestimo);
         }
     }
+
+    // @Override
+    // public void show(List<Emprestimo> emprestimos){
+        
+    // }
 }
