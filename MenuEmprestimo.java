@@ -2,12 +2,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class MenuEmprestimo {
-    private Inputs inputs;
     private Livraria livraria;
+    private Inputs inputs;
+    private AtualizarEmprestimo atualizadorEmprestimo;
 
     public MenuEmprestimo(Livraria livraria, Inputs inputs) {
-        this.inputs = inputs;
         this.livraria = livraria;
+        this.inputs = inputs;
+        this.atualizadorEmprestimo = new AtualizarEmprestimo(livraria, inputs);
     }
 
     public void displayMenuEmprestimos() {
@@ -18,7 +20,8 @@ public class MenuEmprestimo {
             System.out.println("1. Registrar Empréstimo");
             System.out.println("2. Finalizar Empréstimo");
             System.out.println("3. Listar Empréstimos Ativos");
-            System.out.println("4. Voltar");
+            System.out.println("4. Atualizar Empréstimos");
+            System.out.println("5. Voltar");
             System.out.print("Escolha uma opção: ");
             op = inputs.getIntInput();
 
@@ -34,6 +37,9 @@ public class MenuEmprestimo {
                         listarEmprestimosAtivos();
                         break;
                     case 4:
+                        atualizadorEmprestimo.displayMenuAtualizarEmprestimo();
+                        break;
+                    case 5:
                         System.out.println("Voltando...");
                         break;
                     default:
@@ -107,4 +113,5 @@ public class MenuEmprestimo {
             }
         }
     }
+    
 }
