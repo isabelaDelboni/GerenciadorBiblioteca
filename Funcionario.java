@@ -1,20 +1,18 @@
 public class Funcionario extends Pessoa{
-    private int idFuncionario;
+    private String idFuncionario;
     private FuncaoFuncionario funcao;
 
-    CriadorDeIdUnico criador = new CriadorDeIdUnico();
-
-    public Funcionario(String nome, FuncaoFuncionario funcao){
-        super(nome);
-        this.idFuncionario = criador.gerarIdUnico();
+    public Funcionario(String nome, String idFuncionario, FuncaoFuncionario funcao){
+        super(nome, idFuncionario);
+        this.idFuncionario = idFuncionario;
         this.funcao = funcao;
     }
 
-    public int getIdFuncionario() {
+    public String getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(int idFuncionario) {
+    public void setIdFuncionario(String idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 

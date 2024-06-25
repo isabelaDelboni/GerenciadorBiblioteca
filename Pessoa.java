@@ -2,11 +2,9 @@ public abstract class Pessoa {
     private String nome;
     private String id;
 
-    CriadorDeIdUnico criador = new CriadorDeIdUnico();
-
-    public Pessoa(String nome) {
+    public Pessoa(String nome, String id) {
         this.nome = nome;
-        criador.gerarIdUnico();
+        this.id = id;
     }
 
     public String getNome() {

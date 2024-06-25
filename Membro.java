@@ -3,22 +3,21 @@ import java.util.List;
 
 public class Membro extends Pessoa {
     private String nome;
-    private int idMembro;
+    private String idMembro;
     private String email;
     private String telefone;
     private boolean ativo;
+    private List<Emprestimo> emprestimos;
     private List<Emprestimo> historicoEmprestimos;
 
-    CriadorDeIdUnico criador = new CriadorDeIdUnico();
-
-
-    public Membro(String nome, String email, String telefone, boolean ativo) {
-        super(nome);
+    public Membro(String nome, String idMembro, String email, String telefone, boolean ativo) {
+        super(nome, idMembro);
         this.nome = nome;
-        this.idMembro = criador.gerarIdUnico();
+        this.idMembro = idMembro;
         this.email = email;
         this.telefone = telefone;
         this.ativo = ativo;
+        this.emprestimos = new ArrayList<>();
         this.historicoEmprestimos = new ArrayList<>();
     }
 
@@ -30,11 +29,11 @@ public class Membro extends Pessoa {
         this.nome = nome;
     }
 
-    public int getIdMembro() {
+    public String getIdMembro() {
         return idMembro;
     }
 
-    public void setIdMembro(int idMembro) {
+    public void setIdMembro(String idMembro) {
         this.idMembro = idMembro;
     }
 
@@ -60,6 +59,10 @@ public class Membro extends Pessoa {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public void adicionarEmprestimo(Emprestimo emprestimo) {
+        emprestimos.add(emprestimo);
     }
 
     public List<Emprestimo> getHistoricoEmprestimos() {

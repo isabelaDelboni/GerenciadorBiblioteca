@@ -2,7 +2,7 @@ public class Ebook extends Livro {
     private String formato;
 
     public Ebook(String titulo, String autor, CategoriaLivro categoria, int idLivro, boolean livroDisponivel, String formato) {
-        super(titulo, autor, categoria, livroDisponivel);
+        super(titulo, autor, categoria, idLivro, livroDisponivel);
         this.formato = formato;
     }
 

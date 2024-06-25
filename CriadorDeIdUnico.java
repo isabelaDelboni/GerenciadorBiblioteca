@@ -20,5 +20,3 @@ public class CriadorDeIdUnico {
         return id;
     }
 }
-
-//Colocar na main: CriadorDeIdUnico criador = new CriadorDeIdUnico();

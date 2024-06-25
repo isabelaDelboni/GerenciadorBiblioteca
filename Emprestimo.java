@@ -1,49 +1,36 @@
 import java.time.LocalDate;
-import java.util.List;
 
 public class Emprestimo {
 
-    private int idEmprestimo;
-    private int idLivro;
-    private int idMembro;
+    private Livro livro;
+    private Membro membro;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-    private boolean status;
+    private StatusEmprestimo status;
 
-    CriadorDeIdUnico criador = new CriadorDeIdUnico();
-    List<Livro> livros;
-
-    public Emprestimo(int idMembro, int idLivro, LocalDate dataInicio, LocalDate dataFim) {
-        this.idEmprestimo = criador.gerarIdUnico();
-        this.idLivro = idLivro;
-        this.idMembro = idMembro;
+    public Emprestimo(Livro livro, Membro membro, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
+        this.livro = livro;
+        this.membro = membro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        ((Livro) livros).setLivroDisponivel(false);
+        this.status = status;
+        livro.setLivroDisponivel(false);
     }
 
-    public int getIdLivro(){
-        return idLivro;
+    public Livro getLivro() {
+        return livro;
     }
 
-    public int getIdMembro(){
-        return idMembro;
-    }
-    
-    public int getIdEmprestimo(){
-        return idEmprestimo;
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
-    public void setIdLivro(int idLivro){
-        this.idLivro = idLivro;
-    } 
-    
-    public void setIdEmprestimo(int idEmprestimo){
-        this.idEmprestimo= idEmprestimo;
+    public Membro getMembro() {
+        return membro;
     }
 
-    public void setIdMembro(int idMembro2){
-        this.idMembro = idLivro;
+    public void setMembro(Membro membro) {
+        this.membro = membro;
     }
 
     public LocalDate getDataInicio() {
@@ -62,18 +49,23 @@ public class Emprestimo {
         this.dataFim = dataFim;
     }
 
-    // public StatusEmprestimo getStatus() {
-    //     return status;
-    // }
+    public StatusEmprestimo getStatus() {
+        return status;
+    }
 
-    // public void setStatus(StatusEmprestimo status) {
-    //     this.status = status;
-    // }
+    public void setStatus(StatusEmprestimo status) {
+        this.status = status;
+    }
 
-    // public void finalizarEmprestimo() {
-    //     livro.setLivroDisponivel(true);
-    //     membro.adicionarEmprestimoAoHistorico(this);
-    //     setStatus(StatusEmprestimo.RETORNADO);
-    // }
+    public void finalizarEmprestimo() {
+        livro.setLivroDisponivel(true);
+        membro.adicionarEmprestimoAoHistorico(this);
+        setStatus(StatusEmprestimo.RETORNADO);
+    }
+
+    public static void add(Emprestimo emprestimo) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    }
 
 }

@@ -6,13 +6,11 @@ public class Livro{
     private int idLivro;
     private boolean livroDisponivel = true;
 
-    CriadorDeIdUnico criador = new CriadorDeIdUnico();
-
-    public Livro(String titulo, String autor, CategoriaLivro categoria, boolean livroDisponivel) {
+    public Livro(String titulo, String autor, CategoriaLivro categoria, int idLivro, boolean livroDisponivel) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
-        this.idLivro = criador.gerarIdUnico();
+        this.idLivro = idLivro;
         this.livroDisponivel = livroDisponivel;
     }
 
