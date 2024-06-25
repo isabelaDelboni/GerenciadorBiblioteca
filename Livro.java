@@ -6,11 +6,13 @@ public class Livro{
     private int idLivro;
     private boolean livroDisponivel = true;
 
-    public Livro(String titulo, String autor, CategoriaLivro categoria, int idLivro, boolean livroDisponivel) {
+    CriadorDeIdUnico criador = new CriadorDeIdUnico();
+
+    public Livro(String titulo, String autor, CategoriaLivro categoria, boolean livroDisponivel) {
         this.titulo = titulo;
         this.autor = autor;
         this.categoria = categoria;
-        this.idLivro = idLivro;
+        this.idLivro = criador.gerarIdUnico();
         this.livroDisponivel = livroDisponivel;
     }
 
@@ -52,5 +54,14 @@ public class Livro{
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", categoria=" + categoria.getDescricao() +
+                '}';
     }
 }

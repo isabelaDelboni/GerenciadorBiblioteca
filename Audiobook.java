@@ -1,8 +1,8 @@
 public class Audiobook extends Livro {
     private int duracao;
 
-    public Audiobook(String titulo, String autor, CategoriaLivro categoria, int idLivro, boolean livroDisponivel, int duracao) {
-        super(titulo, autor, categoria, idLivro, livroDisponivel);
+    public Audiobook(String titulo, String autor, CategoriaLivro categoria, boolean livroDisponivel, int duracao) {
+        super(titulo, autor, categoria, livroDisponivel);
         this.duracao = duracao;
     }
 

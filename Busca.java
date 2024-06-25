@@ -1,6 +1,7 @@
 import java.util.List;
+import java.util.Scanner;
 
 public interface Busca<T> {
-    List<T> buscaPorNome(String nome);
-    T buscaPorId(String id);
+    void buscaPorNome(Scanner leitor);
+    boolean buscaPorId(int leitor);
 }

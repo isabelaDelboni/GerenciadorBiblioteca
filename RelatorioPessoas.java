@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RelatoriosPessoas {
+public class RelatorioPessoas {
 
     public void membrosComLivrosAtrasados(List<Membro> membros) {
         

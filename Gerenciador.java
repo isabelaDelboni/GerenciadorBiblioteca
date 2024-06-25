@@ -1,5 +1,9 @@
+import java.util.List;
+import java.util.Scanner;
+
 public interface Gerenciador<T> {
-    void add(T item);
-    void remove(T item);
-    void update(T item);
+    void add(Scanner leitor);
+    void remove(Scanner leitor);
+    void update(Scanner leitor);
+    void listar(Scanner leitor);
 }

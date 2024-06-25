@@ -1,36 +1,49 @@
 import java.time.LocalDate;
+import java.util.List;
 
 public class Emprestimo {
 
-    private Livro livro;
-    private Membro membro;
+    private int idEmprestimo;
+    private int idLivro;
+    private int idMembro;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-    private StatusEmprestimo status;
+    private boolean status;
 
-    public Emprestimo(Livro livro, Membro membro, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
-        this.livro = livro;
-        this.membro = membro;
+    CriadorDeIdUnico criador = new CriadorDeIdUnico();
+    List<Livro> livros;
+
+    public Emprestimo(int idMembro, int idLivro, LocalDate dataInicio, LocalDate dataFim) {
+        this.idEmprestimo = criador.gerarIdUnico();
+        this.idLivro = idLivro;
+        this.idMembro = idMembro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.status = status;
-        livro.setLivroDisponivel(false);
+        ((Livro) livros).setLivroDisponivel(false);
     }
 
-    public Livro getLivro() {
-        return livro;
+    public int getIdLivro(){
+        return idLivro;
     }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
+    public int getIdMembro(){
+        return idMembro;
+    }
+    
+    public int getIdEmprestimo(){
+        return idEmprestimo;
     }
 
-    public Membro getMembro() {
-        return membro;
+    public void setIdLivro(int idLivro){
+        this.idLivro = idLivro;
+    } 
+    
+    public void setIdEmprestimo(int idEmprestimo){
+        this.idEmprestimo= idEmprestimo;
     }
 
-    public void setMembro(Membro membro) {
-        this.membro = membro;
+    public void setIdMembro(int idMembro2){
+        this.idMembro = idLivro;
     }
 
     public LocalDate getDataInicio() {
@@ -49,18 +62,18 @@ public class Emprestimo {
         this.dataFim = dataFim;
     }
 
-    public StatusEmprestimo getStatus() {
-        return status;
-    }
+    // public StatusEmprestimo getStatus() {
+    //     return status;
+    // }
 
-    public void setStatus(StatusEmprestimo status) {
-        this.status = status;
-    }
+    // public void setStatus(StatusEmprestimo status) {
+    //     this.status = status;
+    // }
 
-    public void finalizarEmprestimo() {
-        livro.setLivroDisponivel(true);
-        membro.adicionarEmprestimoAoHistorico(this);
-        setStatus(StatusEmprestimo.RETORNADO);
-    }
+    // public void finalizarEmprestimo() {
+    //     livro.setLivroDisponivel(true);
+    //     membro.adicionarEmprestimoAoHistorico(this);
+    //     setStatus(StatusEmprestimo.RETORNADO);
+    // }
 
 }
