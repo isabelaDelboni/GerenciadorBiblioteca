@@ -46,7 +46,7 @@ public class AtualizarEmprestimo {
     }
 
     private void atualizarDataDevolucao(Emprestimo emprestimo) {
-        System.out.println("Digite a nova data de devolução (dd/MM/yyyy): ");
+        System.out.println("Digite a nova data de devolução (YYYY-MM-DD): ");
         String novaData = inputs.getStringInput();
 
         LocalDate novaDataDevolucao = converteStringParaData(novaData);

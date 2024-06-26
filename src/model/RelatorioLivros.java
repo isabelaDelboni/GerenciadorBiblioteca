@@ -2,7 +2,27 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class RelatorioLivros {
+
+    public void gerarRelatorioLivrosEmprestados(List<Emprestimo> emprestimos) {
+        List<Emprestimo> emprestimosConcluidos = new ArrayList<>();
+
+        for (Emprestimo emprestimo : emprestimos) {
+            if (emprestimo.getStatus() == StatusEmprestimo.RETORNADO) {
+                emprestimosConcluidos.add(emprestimo);
+            }
+        }
+
+        if (emprestimosConcluidos.isEmpty()) {
+            System.out.println("Não há livros que já foram emprestados.");
+        } else {
+            System.out.println("Livros que já foram emprestados:");
+            for (Emprestimo emprestimo : emprestimosConcluidos) {
+                System.out.println("- " + emprestimo.getLivro().getTitulo() + " (" + emprestimo.getLivro().getAutor() + ")");
+            }
+        }
+    }
 
     public void gerarRelatorioAtrasos(List<Emprestimo> emprestimos) {
         List<Emprestimo> emprestimosAtrasados = new ArrayList<>();
@@ -49,5 +69,4 @@ public class RelatorioLivros {
         int quantidadeLivros = livros.size();
         System.out.println("Quantidade de livros: " + quantidadeLivros);
     }
-
 }

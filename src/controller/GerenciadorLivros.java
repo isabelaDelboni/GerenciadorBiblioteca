@@ -3,14 +3,18 @@ import java.util.List;
 
 public class GerenciadorLivros implements Gerenciador<Livro> {
     private List<Livro> livros;
+    private Arquivo arquivo;
 
     public GerenciadorLivros() {
+        arquivo = new Arquivo("C:/Users/Pichau/OneDrive/Documentos/GitHub/GerenciadorBiblioteca/src/data/livros.txt");
         this.livros = new ArrayList<>();
+        lerArquivo();
     }
 
     @Override
     public void add(Livro livro) {
         livros.add(livro);
+        escreverArquivo();
     }
 
     @Override
@@ -28,6 +32,7 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
 
     @Override
     public List<Livro> listar() {
+        System.out.println("===== Lista de Livros ======");
         return livros;
     }
 
@@ -40,4 +45,11 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
         return null;
     }
 
+    public void escreverArquivo(){
+        arquivo.escrever(livros);
+    }
+
+    public void lerArquivo(){
+        livros = arquivo.ler();
+    }
 }

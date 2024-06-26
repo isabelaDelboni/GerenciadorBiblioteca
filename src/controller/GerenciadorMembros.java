@@ -28,12 +28,13 @@ public class GerenciadorMembros implements Gerenciador<Membro> {
 
     @Override
     public List<Membro> listar() {
+        System.out.println("===== Lista de Membros ======");
         return membros;
     }
 
-    public Membro buscaPorId(String id) {
+    public Membro buscaPorId(int id) {
         for (Membro membro : membros) {
-            if (membro.getId().equals(id)) {
+            if (membro.getId() == id) {
                 return membro;
             }
         }

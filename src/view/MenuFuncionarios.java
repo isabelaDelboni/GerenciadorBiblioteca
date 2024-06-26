@@ -43,30 +43,37 @@ public class MenuFuncionarios {
     }
 
     private void adicionarFuncionario() {
+        System.out.println("\n==== Adicionar Funcionario ====");
+
         System.out.print("Nome do Funcionário: ");
         String nome = inputs.getStringInput();
 
-        System.out.println("Escolha a função do funcionário: ");
+        System.out.println("\nEscolha a função do funcionário: ");
         for (FuncaoFuncionario funcao : FuncaoFuncionario.values()) {
             System.out.println(funcao.ordinal() + 1 + ". " + funcao.getDescricao());
         }
+        System.out.println("\nDigite: ");
         int escolhaFuncao = inputs.getIntInput();
         FuncaoFuncionario funcao = FuncaoFuncionario.values()[escolhaFuncao - 1];
 
         int idFuncionario = criadorDeIdUnico.gerarIdUnico();
-        Funcionario funcionario = new Funcionario(nome, String.valueOf(idFuncionario), funcao);
+        Funcionario funcionario = new Funcionario(nome, idFuncionario, funcao);
         livraria.getGerenciadorFuncionarios().add(funcionario);
 
-        System.out.println("Funcionário adicionado com sucesso!");
+        System.out.println("\nFuncionário adicionado com sucesso!");
     }
 
     private void removerFuncionario() {
+        System.out.println("\n==== Remover Funcionario====");
+
+        listarFuncionarios();
+
         System.out.print("ID do Funcionário: ");
-        String idFuncionario = inputs.getStringInput();
+        int idFuncionario = inputs.getIntInput();
 
         List<Funcionario> funcionarios = livraria.getGerenciadorFuncionarios().listar();
         for (Funcionario funcionario : funcionarios) {
-            if (funcionario.getIdFuncionario().equals(idFuncionario)) {
+            if (funcionario.getIdFuncionario() == idFuncionario) {
                 livraria.getGerenciadorFuncionarios().remove(funcionario);
                 System.out.println("Funcionário removido com sucesso!");
                 return;
@@ -77,10 +84,6 @@ public class MenuFuncionarios {
     }
 
     private void listarFuncionarios() {
-        List<Funcionario> funcionarios = livraria.getGerenciadorFuncionarios().listar();
-        System.out.println("Funcionários:");
-        for (Funcionario funcionario : funcionarios) {
-            System.out.println(funcionario);
-        }
+        System.out.println(livraria.getGerenciadorFuncionarios().listar());
     }
 }

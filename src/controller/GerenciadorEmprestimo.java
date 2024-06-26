@@ -24,7 +24,19 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
 
     @Override
     public List<Emprestimo> listar() {
+        System.out.println("===== Lista de Todos os Emprestimos ======");
         return emprestimos;
+    }
+
+    public List<Emprestimo> listarEmprestimosConcluidos() {
+        List<Emprestimo> emprestimosConcluidos = new ArrayList<>();
+        for (Emprestimo emprestimo : emprestimos) {
+            if (emprestimo.getStatus() == StatusEmprestimo.RETORNADO) {
+                emprestimosConcluidos.add(emprestimo);
+            }
+        }
+        System.out.println("===== Lista de Emprestimos Concluídos ======");
+        return emprestimosConcluidos;
     }
 
     public Emprestimo buscaPorId(int id) {
