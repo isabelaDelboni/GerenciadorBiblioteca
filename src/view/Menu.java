@@ -18,7 +18,8 @@ public class Menu {
             System.out.println("2. Gerenciar Membros");
             System.out.println("3. Gerenciar Funcionários");
             System.out.println("4. Gerenciar Empréstimos");
-            System.out.println("5. Sair");
+            System.out.println("5. Relatorios");
+            System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = inputs.getIntInput();
 
@@ -40,11 +41,15 @@ public class Menu {
                     menuEmprestimos.displayMenuEmprestimos();
                     break;
                 case 5:
+                    MenuRelatorios menuRelatorios = new MenuRelatorios(livraria, inputs);
+                    menuRelatorios.displayMenuRelatorios();
+                    break;
+                case 6:
                     System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Opção inválida!");
             }
-        } while (opcao != 5);
+        } while (opcao != 6);
     }
 }

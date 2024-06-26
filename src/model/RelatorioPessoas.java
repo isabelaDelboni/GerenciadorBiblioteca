@@ -5,11 +5,11 @@ import java.util.List;
 public class RelatorioPessoas {
 
     public void membrosComLivrosAtrasados(List<Membro> membros) {
-        
+
         List<Membro> membrosComAtrasos = new ArrayList<>();
-    
+
         LocalDate hoje = LocalDate.now();
-    
+
         for (Membro membro : membros) {
             boolean temAtraso = false;
             for (Emprestimo emprestimo : membro.getHistoricoEmprestimos()) {
@@ -20,15 +20,17 @@ public class RelatorioPessoas {
                     break;
                 }
             }
-            if (temAtraso) {
+        }
+
+        if (!membrosComAtrasos.isEmpty()) {
+            System.out.println("Membros com livros em atraso:");
+            for (Membro membro : membrosComAtrasos) {
                 System.out.println("Membro: " + membro.getNome() + " (ID: " + membro.getId() + ")");
                 System.out.println("Email: " + membro.getEmail());
                 System.out.println("Telefone: " + membro.getTelefone());
                 System.out.println();
             }
-        }
-    
-        if (membrosComAtrasos.isEmpty()) {
+        } else {
             System.out.println("Não há membros com livros em atraso.");
         }
     }
@@ -40,7 +42,7 @@ public class RelatorioPessoas {
 
     public void imprimirQuantidadeFuncionarios(List<Funcionario> funcionarios) {
         int quantidadeFuncionarios = funcionarios.size();
-        System.out.println("Quantidade de funcionarios: " + quantidadeFuncionarios);
+        System.out.println("Quantidade de funcionários: " + quantidadeFuncionarios);
     }
-    
+
 }
