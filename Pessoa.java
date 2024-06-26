@@ -23,5 +23,8 @@ public abstract class Pessoa {
         this.id = id;
     }
 
-    public abstract void exibirFuncao();
+    @Override
+    public String toString() {
+        return "Nome: " + nome;
+    }
 }

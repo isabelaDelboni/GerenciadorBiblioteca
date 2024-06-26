@@ -16,17 +16,19 @@ public class Funcionario extends Pessoa{
         this.idFuncionario = idFuncionario;
     }
 
-    public FuncaoFuncionario getfuncao() {
+    public FuncaoFuncionario getFuncao() {
         return funcao;
     }
 
-    public void setCargo(FuncaoFuncionario funcao) {
+    public void setFuncao(FuncaoFuncionario funcao) {
         this.funcao = funcao;
     }
 
     @Override
-    public void exibirFuncao() {
-        System.out.println("Função: " + funcao.getDescricao());
+    public String toString() {
+        return "Id: " + idFuncionario
+        + super.toString()
+        + "Funcao: " + funcao.getDescricao(); 
     }
 
 }

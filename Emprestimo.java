@@ -71,7 +71,11 @@ public class Emprestimo {
 
     @Override
     public String toString() {
-        return "Emprestimo [id=" + id + ", livro=" + livro + ", membro=" + membro + 
-               ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", status=" + status + "]";
+        return "Id: " + id
+        + "\nMembro: " + membro.getNome()
+        + "\nLivro: " + livro.getTitulo()
+        + "\nData inicio: " + dataInicio
+        + "\nData fim: " + dataFim
+        + "\nStatus: " + status.getDescricao();
     }
 }

@@ -51,20 +51,20 @@ public class MenuLivro {
     }
 
     private void adicionarLivro() {
-        System.out.println("Digite o título do livro:");
+        System.out.println("Digite o título do livro: ");
         String titulo = inputs.getStringInput();
 
-        System.out.println("Digite o autor do livro:");
+        System.out.println("Digite o autor do livro: ");
         String autor = inputs.getStringInput();
 
-        System.out.println("Digite a categoria do livro:");
         for (CategoriaLivro categoria : CategoriaLivro.values()) {
             System.out.println(categoria.ordinal() + 1 + ". " + categoria.getDescricao());
         }
+        System.out.println("Digite a categoria do livro: ");
         int categoriaIndex = inputs.getIntInput() - 1;
         CategoriaLivro categoria = CategoriaLivro.values()[categoriaIndex];
 
-        System.out.println("Digite o tipo de livro (1 - Físico, 2 - Ebook, 3 - Audiobook):");
+        System.out.println("Digite o tipo de livro (1 - Físico, 2 - Ebook, 3 - Audiobook): ");
         int tipo = inputs.getIntInput();
 
         int idLivro = criadorDeIdUnico.gerarIdUnico();
@@ -75,12 +75,12 @@ public class MenuLivro {
                 livro = new Livro(titulo, autor, categoria, idLivro, true);
                 break;
             case 2:
-                System.out.println("Digite o formato do ebook:");
+                System.out.println("Digite o formato do ebook: ");
                 String formato = inputs.getStringInput();
                 livro = new Ebook(titulo, autor, categoria, idLivro, true, formato);
                 break;
             case 3:
-                System.out.println("Digite a duração do audiobook em minutos:");
+                System.out.println("Digite a duração do audiobook em minutos: ");
                 int duracao = inputs.getIntInput();
                 livro = new Audiobook(titulo, autor, categoria, idLivro, true, duracao);
                 break;
@@ -94,7 +94,7 @@ public class MenuLivro {
     }
 
     private void removerLivro() {
-        System.out.println("Digite o ID do livro a ser removido:");
+        System.out.println("Digite o ID do livro a ser removido: ");
         int idLivro = inputs.getIntInput();
         Livro livro = livraria.getGerenciadorLivros().buscaPorId(idLivro);
         if (livro != null) {
@@ -106,7 +106,7 @@ public class MenuLivro {
     }
 
     private void atualizarLivro() {
-        System.out.println("Digite o ID do livro a ser atualizado:");
+        System.out.println("Digite o ID do livro a ser atualizado: ");
         int idLivro = inputs.getIntInput();
         Livro livro = livraria.getGerenciadorLivros().buscaPorId(idLivro);
         if (livro == null) {
@@ -114,15 +114,15 @@ public class MenuLivro {
             return;
         }
 
-        System.out.println("Digite o novo título do livro:");
+        System.out.println("Digite o novo título do livro: ");
         String titulo = inputs.getStringInput();
         livro.setTitulo(titulo);
 
-        System.out.println("Digite o novo autor do livro:");
+        System.out.println("Digite o novo autor do livro: ");
         String autor = inputs.getStringInput();
         livro.setAutor(autor);
 
-        System.out.println("Digite a nova categoria do livro:");
+        System.out.println("Digite a nova categoria do livro: ");
         for (CategoriaLivro categoria : CategoriaLivro.values()) {
             System.out.println(categoria.ordinal() + 1 + ". " + categoria.getDescricao());
         }
@@ -137,7 +137,7 @@ public class MenuLivro {
     private void mostrarLivros() {
         List<Livro> livros = livraria.getGerenciadorLivros().listar();
         for (Livro livro : livros) {
-            System.out.println(livro.toString());
+            System.out.println(livro);
             System.out.println("==============================");
         }
     }

@@ -56,10 +56,10 @@ public class Livro{
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", categoria=" + categoria.getDescricao() +
-                '}';
+        return 
+        "Id: " + idLivro
+        +"\nTitulo: " + titulo
+        +"\nAutor: " + autor
+        +"\nCategoria: " + categoria;
     }
 }

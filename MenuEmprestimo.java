@@ -48,10 +48,11 @@ public class MenuEmprestimo {
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());
             }
-        } while (op != 4);
+        } while (op != 5);
     }
 
     private void registrarEmprestimo() {
+        System.out.println("\n==== Registrar Empréstimos ====");
         System.out.print("ID do Membro: ");
         String idMembro = inputs.getStringInput();
         Membro membro = livraria.getGerenciadorMembros().buscaPorId(idMembro);
@@ -77,12 +78,14 @@ public class MenuEmprestimo {
 
         Emprestimo emprestimo = new Emprestimo(livro, membro, dataInicio, dataFim, StatusEmprestimo.EM_EMPRESTIMO);
         livraria.getGerenciadorEmprestimos().add(emprestimo);
-        membro.adicionarEmprestimo(emprestimo);
+        membro.adicionarEmprestimoAoHistorico(emprestimo);
 
         System.out.println("Empréstimo registrado com sucesso!");
     }
 
     private void finalizarEmprestimo() {
+        System.out.println("\n==== Finalizar Empréstimos ====");
+
         System.out.print("ID do Livro: ");
         int idLivro = inputs.getIntInput();
         Livro livro = livraria.getGerenciadorLivros().buscaPorId(idLivro);
@@ -105,6 +108,7 @@ public class MenuEmprestimo {
     }
 
     private void listarEmprestimosAtivos() {
+        System.out.println("\n==== Lista de Empréstimos Ativos ====");
         List<Emprestimo> emprestimos = livraria.getGerenciadorEmprestimos().listar();
         System.out.println("Empréstimos Ativos:");
         for (Emprestimo emprestimo : emprestimos) {

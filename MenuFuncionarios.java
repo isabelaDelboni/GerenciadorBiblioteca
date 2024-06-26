@@ -43,6 +43,7 @@ public class MenuFuncionarios {
     }
 
     private void adicionarFuncionario() {
+        System.out.println("\n==== Adicionar Funcionario ====");
         System.out.print("Nome do Funcionário: ");
         String nome = inputs.getStringInput();
 
@@ -61,6 +62,7 @@ public class MenuFuncionarios {
     }
 
     private void removerFuncionario() {
+        System.out.println("\n==== Remover Funcionario ====");
         System.out.print("ID do Funcionário: ");
         String idFuncionario = inputs.getStringInput();
 
@@ -77,6 +79,7 @@ public class MenuFuncionarios {
     }
 
     private void listarFuncionarios() {
+        System.out.println("\n==== Lista de Funcionarios ====");
         List<Funcionario> funcionarios = livraria.getGerenciadorFuncionarios().listar();
         System.out.println("Funcionários:");
         for (Funcionario funcionario : funcionarios) {
