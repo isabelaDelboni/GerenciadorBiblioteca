@@ -1,8 +1,8 @@
 public abstract class Pessoa {
     private String nome;
-    private String id;
+    private int id;
 
-    public Pessoa(String nome, String id) {
+    public Pessoa(String nome, int id) {
         this.nome = nome;
         this.id = id;
     }
@@ -15,11 +15,11 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

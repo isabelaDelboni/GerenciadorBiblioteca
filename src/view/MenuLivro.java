@@ -137,6 +137,7 @@ public class MenuLivro {
     private void mostrarLivros() {
         List<Livro> livros = livraria.getGerenciadorLivros().listar();
         for (Livro livro : livros) {
+            System.out.println("ID: " + livro.getIdLivro());
             System.out.println(livro.toString());
             System.out.println("==============================");
         }

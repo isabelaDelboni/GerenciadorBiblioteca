@@ -71,7 +71,13 @@ public class Emprestimo {
 
     @Override
     public String toString() {
-        return "Emprestimo [id=" + id + ", livro=" + livro + ", membro=" + membro + 
-               ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", status=" + status + "]";
+        return "Emprestimo{" +
+                "id=" + id +
+                ", livro=" + livro.getTitulo() +
+                ", membro=" + membro.getNome() +
+                ", dataInicio=" + dataInicio +
+                ", dataFim=" + dataFim +
+                ", status=" + status +
+                '}';
     }
 }

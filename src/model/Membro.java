@@ -3,14 +3,14 @@ import java.util.List;
 
 public class Membro extends Pessoa {
     private String nome;
-    private String idMembro;
+    private int idMembro;
     private String email;
     private String telefone;
     private boolean ativo;
     private List<Emprestimo> emprestimos;
     private List<Emprestimo> historicoEmprestimos;
 
-    public Membro(String nome, String idMembro, String email, String telefone, boolean ativo) {
+    public Membro(String nome, int idMembro, String email, String telefone, boolean ativo) {
         super(nome, idMembro);
         this.nome = nome;
         this.idMembro = idMembro;
@@ -29,11 +29,11 @@ public class Membro extends Pessoa {
         this.nome = nome;
     }
 
-    public String getIdMembro() {
+    public int getIdMembro() {
         return idMembro;
     }
 
-    public void setIdMembro(String idMembro) {
+    public void setIdMembro(int idMembro) {
         this.idMembro = idMembro;
     }
 
@@ -78,4 +78,12 @@ public class Membro extends Pessoa {
         System.out.println("Função: Membro da biblioteca");
     }
 
+    @Override
+    public String toString() {
+        return "ID: " + idMembro +
+               ", Nome: " + nome +
+               ", Email: " + email +
+               ", Telefone: " + telefone +
+               ", Ativo: " + (ativo ? "Sim" : "Não");
+    }
 }

@@ -54,7 +54,7 @@ public class MenuFuncionarios {
         FuncaoFuncionario funcao = FuncaoFuncionario.values()[escolhaFuncao - 1];
 
         int idFuncionario = criadorDeIdUnico.gerarIdUnico();
-        Funcionario funcionario = new Funcionario(nome, String.valueOf(idFuncionario), funcao);
+        Funcionario funcionario = new Funcionario(nome, idFuncionario, funcao);
         livraria.getGerenciadorFuncionarios().add(funcionario);
 
         System.out.println("Funcionário adicionado com sucesso!");
@@ -62,11 +62,11 @@ public class MenuFuncionarios {
 
     private void removerFuncionario() {
         System.out.print("ID do Funcionário: ");
-        String idFuncionario = inputs.getStringInput();
+        int idFuncionario = inputs.getIntInput();
 
         List<Funcionario> funcionarios = livraria.getGerenciadorFuncionarios().listar();
         for (Funcionario funcionario : funcionarios) {
-            if (funcionario.getIdFuncionario().equals(idFuncionario)) {
+            if (funcionario.getIdFuncionario() == idFuncionario) {
                 livraria.getGerenciadorFuncionarios().remove(funcionario);
                 System.out.println("Funcionário removido com sucesso!");
                 return;

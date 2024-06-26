@@ -53,7 +53,7 @@ public class MenuEmprestimo {
 
     private void registrarEmprestimo() {
         System.out.print("ID do Membro: ");
-        String idMembro = inputs.getStringInput();
+        int idMembro = inputs.getIntInput();
         Membro membro = livraria.getGerenciadorMembros().buscaPorId(idMembro);
 
         if (membro == null) {

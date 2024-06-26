@@ -1,18 +1,18 @@
 public class Funcionario extends Pessoa{
-    private String idFuncionario;
+    private int idFuncionario;
     private FuncaoFuncionario funcao;
 
-    public Funcionario(String nome, String idFuncionario, FuncaoFuncionario funcao){
+    public Funcionario(String nome, int idFuncionario, FuncaoFuncionario funcao){
         super(nome, idFuncionario);
         this.idFuncionario = idFuncionario;
         this.funcao = funcao;
     }
 
-    public String getIdFuncionario() {
+    public int getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(String idFuncionario) {
+    public void setIdFuncionario(int idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 
@@ -29,4 +29,10 @@ public class Funcionario extends Pessoa{
         System.out.println("Função: " + funcao.getDescricao());
     }
 
+    @Override
+    public String toString() {
+        return "ID: " + idFuncionario +
+               ", Nome: " + getNome() +
+               ", Função: " + funcao.getDescricao();
+    }
 }
