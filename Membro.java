@@ -72,4 +72,16 @@ public class Membro extends Pessoa {
         System.out.println("Membro da biblioteca");
     }
 
+<<<<<<< Updated upstream:Membro.java
 }
+=======
+    @Override
+    public String toString() {
+        return "\nId: " + idMembro
+        + super.toString()
+        + "\nE-mail: " + email
+        + "\nTelefone: " + telefone
+        +"\n=================";
+    }
+}
+>>>>>>> Stashed changes:src/model/Membro.java

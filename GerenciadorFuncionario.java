@@ -25,4 +25,13 @@ public class GerenciadorFuncionario implements Gerenciador<Funcionario> {
             funcionarios.set(index, funcionario);
         }
     }
+<<<<<<< Updated upstream:GerenciadorFuncionario.java
+=======
+
+    @Override
+    public List<Funcionario> listar() {
+        System.out.println("===== Lista de Funcionarios ======");
+        return funcionarios;
+    }
+>>>>>>> Stashed changes:src/controller/GerenciadorFuncionario.java
 }

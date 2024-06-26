@@ -1,7 +1,14 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
+<<<<<<< Updated upstream:Emprestimo.java
 public class Emprestimo {
 
+=======
+public class Emprestimo implements Serializable{
+    private static int contadorId = 0; // Contador estático para gerar IDs únicos
+    private int id; // Identificador único para cada empréstimo
+>>>>>>> Stashed changes:src/model/Emprestimo.java
     private Livro livro;
     private Membro membro;
     private LocalDate dataInicio;
@@ -63,4 +70,17 @@ public class Emprestimo {
         setStatus(StatusEmprestimo.RETORNADO);
     }
 
+<<<<<<< Updated upstream:Emprestimo.java
+=======
+    @Override
+    public String toString() {
+        return "\nId: " + id
+        + "\nMembro: " + membro.getNome()
+        + "\nLivro: " + livro.getTitulo()
+        + "\nData inicio: " + dataInicio
+        + "\nData fim: " + dataFim
+        + "\nStatus: " + status.getDescricao()
+        +"\n=================";
+    }
+>>>>>>> Stashed changes:src/model/Emprestimo.java
 }
