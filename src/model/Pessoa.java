@@ -2,9 +2,9 @@ import java.io.Serializable;
 
 public abstract class Pessoa implements Serializable{
     private String nome;
-    private int id;
+    private String id;
 
-    public Pessoa(String nome, int id) {
+    public Pessoa(String nome, String id) {
         this.nome = nome;
         this.id = id;
     }
@@ -17,11 +17,11 @@ public abstract class Pessoa implements Serializable{
         this.nome = nome;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

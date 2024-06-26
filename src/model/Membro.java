@@ -3,13 +3,13 @@ import java.util.List;
 
 public class Membro extends Pessoa {
     private String nome;
-    private int idMembro;
+    private String idMembro;
     private String email;
     private String telefone;
     private boolean ativo;
     private List<Emprestimo> historicoEmprestimos;
 
-    public Membro(String nome, int idMembro, String email, String telefone, boolean ativo) {
+    public Membro(String nome, String idMembro, String email, String telefone, boolean ativo) {
         super(nome, idMembro);
         this.nome = nome;
         this.idMembro = idMembro;
@@ -27,11 +27,11 @@ public class Membro extends Pessoa {
         this.nome = nome;
     }
 
-    public int getIdMembro() {
+    public String getIdMembro() {
         return idMembro;
     }
 
-    public void setIdMembro(int idMembro) {
+    public void setIdMembro(String idMembro) {
         this.idMembro = idMembro;
     }
 
@@ -78,6 +78,6 @@ public class Membro extends Pessoa {
         + super.toString()
         + "\nE-mail: " + email
         + "\nTelefone: " + telefone
-        +"\n=================\n";
+        +"\n=================";
     }
 }

@@ -62,7 +62,7 @@ public class Livro implements Serializable{
         "\nId: " + idLivro
         +"\nTitulo: " + titulo
         +"\nAutor: " + autor
-        +"\nCategoria: " + categoria.getDescricao()
-        +"\n=================\n";
+        +"\nCategoria: " + categoria
+        +"\n=================";
     }
 }

@@ -5,6 +5,4 @@ public interface Gerenciador<T> {
     void remove(T item);
     void update(T item);
     List<T> listar();
-    void lerArquivo();
-    void escreverArquivo();
 }
