@@ -3,25 +3,21 @@ import java.time.LocalDate;
 
 public class Emprestimo implements Serializable{
     private static int contadorId = 0;
-    private int id;
+    private int idEmprestimo;
     private Livro livro;
     private Membro membro;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private StatusEmprestimo status;
 
-    public Emprestimo(Livro livro, Membro membro, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
-        this.id = ++contadorId;
+    public Emprestimo(Livro livro, Membro membro, int idEmprestimo, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
         this.livro = livro;
         this.membro = membro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.status = status;
+        this.idEmprestimo = idEmprestimo;
         livro.setLivroDisponivel(false);
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Livro getLivro() {
@@ -70,14 +66,22 @@ public class Emprestimo implements Serializable{
         setStatus(StatusEmprestimo.RETORNADO);
     }
 
+    public int getIdEmprestimo() {
+        return idEmprestimo;
+    }
+
+    public void setIdEmprestimo(int idEmprestimo) {
+        this.idEmprestimo = idEmprestimo;
+    }
+
     @Override
     public String toString() {
-        return "\nId: " + id
+        return "\nId: " + idEmprestimo
         + "\nMembro: " + membro.getNome()
         + "\nLivro: " + livro.getTitulo()
         + "\nData inicio: " + dataInicio
         + "\nData fim: " + dataFim
         + "\nStatus: " + status.getDescricao()
-        +"\n=================";
+        +"\n=================\n";
     }
 }

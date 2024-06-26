@@ -78,6 +78,8 @@ public class Membro extends Pessoa {
         + super.toString()
         + "\nE-mail: " + email
         + "\nTelefone: " + telefone
-        +"\n=================";
+        + "\nEmprestimo(s):\n" + getHistoricoEmprestimos()
+        + "\nNumero de emprestimos: " + getHistoricoEmprestimos().size()
+        +"\n=================\n";
     }
 }

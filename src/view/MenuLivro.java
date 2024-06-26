@@ -59,7 +59,7 @@ public class MenuLivro {
         for (CategoriaLivro categoria : CategoriaLivro.values()) {
             System.out.println(categoria.ordinal() + 1 + ". " + categoria.getDescricao());
         }
-        System.out.print("Digite: ");
+        System.out.print("Escolha uma opção: ");
         int categoriaIndex = inputs.getIntInput() - 1;
         CategoriaLivro categoria = CategoriaLivro.values()[categoriaIndex];
 
@@ -133,7 +133,7 @@ public class MenuLivro {
         for (CategoriaLivro categoria : CategoriaLivro.values()) {
             System.out.println(categoria.ordinal() + 1 + ". " + categoria.getDescricao());
         }
-        System.out.print("Digite: ");
+        System.out.print("Escolha uma opção: ");
         int categoriaIndex = inputs.getIntInput() - 1;
         CategoriaLivro categoria = CategoriaLivro.values()[categoriaIndex];
         livro.setCategoria(categoria);

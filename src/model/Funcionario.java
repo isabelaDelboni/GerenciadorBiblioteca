@@ -29,11 +29,12 @@ public class Funcionario extends Pessoa{
         System.out.println("Função: " + funcao);
     }
 
+
     @Override
     public String toString() {
         return "Id: " + idFuncionario
         + super.toString()
         + "Funcao: " + funcao.getDescricao()
-        +"\n=================";
+        +"\n=================\n";
     }
 }
