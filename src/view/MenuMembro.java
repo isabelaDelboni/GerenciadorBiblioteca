@@ -45,9 +45,9 @@ public class MenuMembro {
         System.out.print("Nome do Membro: ");
         String nome = inputs.getStringInput();
         int idMembro = criadorDeIdUnico.gerarIdUnico();
-        System.out.print("Email do Membro: ");
+        System.out.print("\nEmail do Membro: ");
         String email = inputs.getStringInput();
-        System.out.print("Telefone do Membro: ");
+        System.out.print("\nTelefone do Membro: ");
         String telefone = inputs.getStringInput();
         Membro membro = new Membro(nome, idMembro, email, telefone, true); 
         livraria.getGerenciadorMembros().add(membro);

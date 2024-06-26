@@ -6,8 +6,8 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
     private Arquivo arquivo;
 
     public GerenciadorLivros() {
-        arquivo = new Arquivo("C:/Users/Pichau/OneDrive/Documentos/GitHub/GerenciadorBiblioteca/src/data/livros.txt");
         this.livros = new ArrayList<>();
+        arquivo = new Arquivo("livros.txt");
         lerArquivo();
     }
 
@@ -20,14 +20,18 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
     @Override
     public void remove(Livro livro) {
         livros.remove(livro);
+        escreverArquivo();
     }
 
     @Override
     public void update(Livro livro) {
         int index = livros.indexOf(livro);
+
         if (index != -1) {
             livros.set(index, livro);
         }
+
+        escreverArquivo();
     }
 
     @Override
@@ -45,10 +49,12 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
         return null;
     }
 
+    @Override
     public void escreverArquivo(){
         arquivo.escrever(livros);
     }
 
+    @Override
     public void lerArquivo(){
         livros = arquivo.ler();
     }

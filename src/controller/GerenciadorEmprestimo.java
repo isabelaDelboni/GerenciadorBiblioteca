@@ -2,16 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
-    private List<Emprestimo> emprestimos = new ArrayList<>();
-    
+    private List<Emprestimo> emprestimos;
+    private Arquivo arquivo;
+
+    public GerenciadorEmprestimo (){
+        this.emprestimos = new ArrayList<>();
+        arquivo = new Arquivo("emprestimos.txt");
+        lerArquivo();
+    }
+
     @Override
     public void add(Emprestimo emprestimo) {
         emprestimos.add(emprestimo);
+        escreverArquivo();
     }
 
     @Override
     public void remove(Emprestimo emprestimo) {
         emprestimos.remove(emprestimo);
+        escreverArquivo();
     }
 
     @Override
@@ -20,20 +29,38 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
         if (index != -1) {
             emprestimos.set(index, emprestimo);
         }
+        escreverArquivo();
     }
 
     @Override
     public List<Emprestimo> listar() {
         System.out.println("===== Lista de Emprestimos Ativos ======");
-        return emprestimos;
+
+        for (int i = 0; i < emprestimos.size(); i++){
+            if(emprestimos.get(i).getStatus() == StatusEmprestimo.EM_EMPRESTIMO){
+                emprestimos.get(i);
+            }
+        }
+
+        return null;
     }
 
     public Emprestimo buscaPorId(int id) {
         for (Emprestimo emprestimo : emprestimos) {
-            if (emprestimo.getId() == id) {
+            if (emprestimo.getIdEmprestimo() == id) {
                 return emprestimo;
             }
         }
         return null;
+    }
+
+    @Override
+    public void escreverArquivo(){
+        arquivo.escrever(emprestimos);
+    }
+
+    @Override
+    public void lerArquivo(){
+        emprestimos = arquivo.ler();
     }
 }

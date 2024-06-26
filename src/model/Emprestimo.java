@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class Emprestimo implements Serializable{
     private static int contadorId = 0;
-    private int id;
+    private int idEmprestimo;
     private Livro livro;
     private Membro membro;
     private LocalDate dataInicio;
@@ -65,14 +65,22 @@ public class Emprestimo implements Serializable{
         setStatus(StatusEmprestimo.RETORNADO);
     }
 
+    public int getIdEmprestimo() {
+        return idEmprestimo;
+    }
+
+    public void setIdEmprestimo(int idEmprestimo) {
+        this.idEmprestimo = idEmprestimo;
+    }
+
     @Override
     public String toString() {
-        return "\nId: " + id
+        return "\nId: " + idEmprestimo
         + "\nMembro: " + membro.getNome()
         + "\nLivro: " + livro.getTitulo()
         + "\nData inicio: " + dataInicio
         + "\nData fim: " + dataFim
         + "\nStatus: " + status.getDescricao()
-        +"\n=================";
+        +"\n=================\n";
     }
 }

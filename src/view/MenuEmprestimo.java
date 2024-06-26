@@ -113,8 +113,6 @@ public class MenuEmprestimo {
     }
 
     private void listarEmprestimosAtivos() {
-        System.out.println("\n==== Lista de Empréstimos Ativos ====");
-
         System.out.println(livraria.getGerenciadorEmprestimos().listar());
     }
 }
