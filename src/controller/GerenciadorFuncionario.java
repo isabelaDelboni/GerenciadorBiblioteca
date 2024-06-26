@@ -49,6 +49,8 @@ public class GerenciadorFuncionario implements Gerenciador<Funcionario> {
 
     @Override
     public void lerArquivo(){
-        funcionarios = arquivo.ler();
+        if (arquivo.ler() != null) {
+            funcionarios = arquivo.ler();
+        }
     }
 }

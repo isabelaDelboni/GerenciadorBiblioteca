@@ -56,6 +56,8 @@ public class GerenciadorLivros implements Gerenciador<Livro> {
 
     @Override
     public void lerArquivo(){
-        livros = arquivo.ler();
+        if (arquivo.ler() != null) {
+            livros = arquivo.ler();
+        }
     }
 }

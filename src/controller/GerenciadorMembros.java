@@ -56,6 +56,8 @@ public class GerenciadorMembros implements Gerenciador<Membro> {
 
     @Override
     public void lerArquivo(){
-        membros = arquivo.ler();
+        if (arquivo.ler() != null) {
+            membros = arquivo.ler();
+        }
     }
 }

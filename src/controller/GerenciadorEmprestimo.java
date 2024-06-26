@@ -6,7 +6,7 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
     private Arquivo arquivo;
 
     public GerenciadorEmprestimo (){
-        this.emprestimos = new ArrayList<>();
+        this.emprestimos = new ArrayList<Emprestimo>();
         arquivo = new Arquivo("emprestimos.txt");
         lerArquivo();
     }
@@ -38,7 +38,7 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
 
         for (int i = 0; i < emprestimos.size(); i++){
             if(emprestimos.get(i).getStatus() == StatusEmprestimo.EM_EMPRESTIMO){
-                emprestimos.get(i);
+                System.out.println(emprestimos.get(i));
             }
         }
 
@@ -61,6 +61,8 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
 
     @Override
     public void lerArquivo(){
-        emprestimos = arquivo.ler();
+        if (arquivo.ler() != null) {
+            emprestimos = arquivo.ler();
+        }
     }
 }

@@ -10,12 +10,13 @@ public class Emprestimo implements Serializable{
     private LocalDate dataFim;
     private StatusEmprestimo status;
 
-    public Emprestimo(Livro livro, Membro membro, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
+    public Emprestimo(Livro livro, Membro membro, int idEmprestimo, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
         this.livro = livro;
         this.membro = membro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.status = status;
+        this.idEmprestimo = idEmprestimo;
         livro.setLivroDisponivel(false);
     }
 

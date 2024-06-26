@@ -5,11 +5,15 @@ public class MenuEmprestimo {
     private Livraria livraria;
     private Inputs inputs;
     private AtualizarEmprestimo atualizadorEmprestimo;
+    private CriadorDeIdUnico criadorDeIdUnico;
+
 
     public MenuEmprestimo(Livraria livraria, Inputs inputs) {
         this.livraria = livraria;
         this.inputs = inputs;
         this.atualizadorEmprestimo = new AtualizarEmprestimo(livraria, inputs);
+        this.criadorDeIdUnico = new CriadorDeIdUnico ();
+
     }
 
     public void displayMenuEmprestimos() {
@@ -76,10 +80,13 @@ public class MenuEmprestimo {
 
         System.out.print("\nData de Início (YYYY-MM-DD): ");
         LocalDate dataInicio = LocalDate.parse(inputs.getStringInput());
+
         System.out.print("\nData de Fim (YYYY-MM-DD): ");
         LocalDate dataFim = LocalDate.parse(inputs.getStringInput());
 
-        Emprestimo emprestimo = new Emprestimo(livro, membro, dataInicio, dataFim, StatusEmprestimo.EM_EMPRESTIMO);
+        int idEmprestimo = criadorDeIdUnico.gerarIdUnico();
+
+        Emprestimo emprestimo = new Emprestimo(livro, membro, idEmprestimo, dataInicio, dataFim, StatusEmprestimo.EM_EMPRESTIMO);
         livraria.getGerenciadorEmprestimos().add(emprestimo);
         membro.adicionarEmprestimoAoHistorico(emprestimo);
 
