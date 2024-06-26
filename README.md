@@ -37,6 +37,9 @@ O projeto é composto por várias classes distribuídas em diferentes pacotes:
 ### Pacote `view`
 - **Menu, MenuFuncionarios, MenuLivro, MenuEmprestimo, MenuMembro:** Classes que definem menus e interfaces de interação com o usuário.
 
+### Pacote `data`
+- **Arquivos .txt:** Todos os dados persistidos do sistema, como informações de livros, membros, funcionários, empréstimos, etc., são armazenados em arquivos de texto (.txt) dentro deste pacote. Isso garante a integridade e a disponibilidade das informações mesmo após o encerramento da aplicação.
+
 As classes estão estruturadas para facilitar o gerenciamento e a manipulação dos dados relacionados ao acervo da biblioteca, interagindo entre si através de associações e agregações conforme necessário.
 
 ## Como Executar o Projeto
