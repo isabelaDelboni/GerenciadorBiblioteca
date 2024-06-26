@@ -1,4 +1,6 @@
-public class Livro{
+import java.io.Serializable;
+
+public class Livro implements Serializable{
 
     private String titulo;
     private String autor;
@@ -56,10 +58,11 @@ public class Livro{
 
     @Override
     public String toString() {
-        return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", categoria=" + categoria.getDescricao() +
-                '}';
+        return 
+        "\nId: " + idLivro
+        +"\nTitulo: " + titulo
+        +"\nAutor: " + autor
+        +"\nCategoria: " + categoria.getDescricao()
+        +"\n=================\n";
     }
 }
