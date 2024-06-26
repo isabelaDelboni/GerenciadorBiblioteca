@@ -7,7 +7,6 @@ public class Membro extends Pessoa {
     private String email;
     private String telefone;
     private boolean ativo;
-    private List<Emprestimo> emprestimos;
     private List<Emprestimo> historicoEmprestimos;
 
     public Membro(String nome, String idMembro, String email, String telefone, boolean ativo) {
@@ -17,7 +16,6 @@ public class Membro extends Pessoa {
         this.email = email;
         this.telefone = telefone;
         this.ativo = ativo;
-        this.emprestimos = new ArrayList<>();
         this.historicoEmprestimos = new ArrayList<>();
     }
 
@@ -61,10 +59,6 @@ public class Membro extends Pessoa {
         this.ativo = ativo;
     }
 
-    public void adicionarEmprestimo(Emprestimo emprestimo) {
-        emprestimos.add(emprestimo);
-    }
-
     public List<Emprestimo> getHistoricoEmprestimos() {
         return historicoEmprestimos;
     }
@@ -75,7 +69,15 @@ public class Membro extends Pessoa {
 
     @Override
     public void exibirFuncao() {
-        System.out.println("Função: Membro da biblioteca");
+        System.out.println("Membro da biblioteca");
     }
 
+    @Override
+    public String toString() {
+        return "\nId: " + idMembro
+        + super.toString()
+        + "\nE-mail: " + email
+        + "\nTelefone: " + telefone
+        +"\n=================";
+    }
 }

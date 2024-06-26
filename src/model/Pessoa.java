@@ -1,4 +1,6 @@
-public abstract class Pessoa {
+import java.io.Serializable;
+
+public abstract class Pessoa implements Serializable{
     private String nome;
     private String id;
 
@@ -24,4 +26,10 @@ public abstract class Pessoa {
     }
 
     public abstract void exibirFuncao();
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "\nNome: " + nome;
+    }
 }

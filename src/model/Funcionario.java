@@ -26,7 +26,17 @@ public class Funcionario extends Pessoa{
 
     @Override
     public void exibirFuncao() {
-        System.out.println("Função: " + funcao.getDescricao());
+        System.out.println("Função: " + funcao);
     }
 
+<<<<<<< Updated upstream:Funcionario.java
+=======
+    @Override
+    public String toString() {
+        return "Id: " + idFuncionario
+        + super.toString()
+        + "Funcao: " + funcao.getDescricao()
+        +"\n=================";
+    }
+>>>>>>> Stashed changes:src/model/Funcionario.java
 }

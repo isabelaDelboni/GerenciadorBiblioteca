@@ -25,35 +25,37 @@ public class MenuEmprestimo {
             System.out.print("Escolha uma opção: ");
             op = inputs.getIntInput();
 
-            try {
-                switch (op) {
-                    case 1:
-                        registrarEmprestimo();
-                        break;
-                    case 2:
-                        finalizarEmprestimo();
-                        break;
-                    case 3:
-                        listarEmprestimosAtivos();
-                        break;
-                    case 4:
-                        atualizadorEmprestimo.displayMenuAtualizarEmprestimo();
-                        break;
-                    case 5:
-                        System.out.println("Voltando...");
-                        break;
-                    default:
-                        System.out.println("Opção inválida!");
-                }
-            } catch (Exception e) {
-                System.out.println("Erro: " + e.getMessage());
+            
+            switch (op) {
+                case 1:
+                    registrarEmprestimo();
+                    break;
+                case 2:
+                    finalizarEmprestimo();
+                    break;
+                case 3:
+                    listarEmprestimosAtivos();
+                    break;
+                case 4:
+                    atualizadorEmprestimo.displayMenuAtualizarEmprestimo();
+                    break;
+                case 5:
+                    System.out.println("Voltando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
             }
-        } while (op != 4);
+            
+        } while (op != 5);
     }
 
     private void registrarEmprestimo() {
+        System.out.println("\n==== Registrar Empréstimos ====");
+
+        System.out.println(livraria.getGerenciadorMembros().listar());
+
         System.out.print("ID do Membro: ");
-        String idMembro = inputs.getStringInput();
+        int idMembro = inputs.getIntInput();
         Membro membro = livraria.getGerenciadorMembros().buscaPorId(idMembro);
 
         if (membro == null) {
@@ -61,7 +63,9 @@ public class MenuEmprestimo {
             return;
         }
 
-        System.out.print("ID do Livro: ");
+        System.out.println(livraria.getGerenciadorLivros().listar());
+
+        System.out.print("\nID do Livro: ");
         int idLivro = inputs.getIntInput();
         Livro livro = livraria.getGerenciadorLivros().buscaPorId(idLivro);
 
@@ -70,19 +74,23 @@ public class MenuEmprestimo {
             return;
         }
 
-        System.out.print("Data de Início (YYYY-MM-DD): ");
+        System.out.print("\nData de Início (YYYY-MM-DD): ");
         LocalDate dataInicio = LocalDate.parse(inputs.getStringInput());
-        System.out.print("Data de Fim (YYYY-MM-DD): ");
+        System.out.print("\nData de Fim (YYYY-MM-DD): ");
         LocalDate dataFim = LocalDate.parse(inputs.getStringInput());
 
         Emprestimo emprestimo = new Emprestimo(livro, membro, dataInicio, dataFim, StatusEmprestimo.EM_EMPRESTIMO);
         livraria.getGerenciadorEmprestimos().add(emprestimo);
-        membro.adicionarEmprestimo(emprestimo);
+        membro.adicionarEmprestimoAoHistorico(emprestimo);
 
-        System.out.println("Empréstimo registrado com sucesso!");
+        System.out.println("\nEmpréstimo registrado com sucesso!");
     }
 
     private void finalizarEmprestimo() {
+        System.out.println("\n==== Finalizar Empréstimos ====");
+
+        System.out.println(livraria.getGerenciadorLivros().listar());
+        
         System.out.print("ID do Livro: ");
         int idLivro = inputs.getIntInput();
         Livro livro = livraria.getGerenciadorLivros().buscaPorId(idLivro);
@@ -105,13 +113,8 @@ public class MenuEmprestimo {
     }
 
     private void listarEmprestimosAtivos() {
-        List<Emprestimo> emprestimos = livraria.getGerenciadorEmprestimos().listar();
-        System.out.println("Empréstimos Ativos:");
-        for (Emprestimo emprestimo : emprestimos) {
-            if (emprestimo.getStatus() == StatusEmprestimo.EM_EMPRESTIMO) {
-                System.out.println(emprestimo);
-            }
-        }
+        System.out.println("\n==== Lista de Empréstimos Ativos ====");
+
+        System.out.println(livraria.getGerenciadorEmprestimos().listar());
     }
-    
 }

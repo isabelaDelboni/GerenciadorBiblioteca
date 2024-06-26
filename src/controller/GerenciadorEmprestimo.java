@@ -3,7 +3,7 @@ import java.util.List;
 
 public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
     private List<Emprestimo> emprestimos = new ArrayList<>();
-
+    
     @Override
     public void add(Emprestimo emprestimo) {
         emprestimos.add(emprestimo);
@@ -24,6 +24,7 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
 
     @Override
     public List<Emprestimo> listar() {
+        System.out.println("===== Lista de Emprestimos Ativos ======");
         return emprestimos;
     }
 

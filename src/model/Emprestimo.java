@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Emprestimo {
-    private static int contadorId = 0; // Contador estático para gerar IDs únicos
-    private int id; // Identificador único para cada empréstimo
+public class Emprestimo implements Serializable{
+    private static int contadorId = 0;
+    private int id;
     private Livro livro;
     private Membro membro;
     private LocalDate dataInicio;
@@ -10,17 +11,12 @@ public class Emprestimo {
     private StatusEmprestimo status;
 
     public Emprestimo(Livro livro, Membro membro, LocalDate dataInicio, LocalDate dataFim, StatusEmprestimo status) {
-        this.id = ++contadorId; // Incrementa e atribui um ID único
         this.livro = livro;
         this.membro = membro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.status = status;
         livro.setLivroDisponivel(false);
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Livro getLivro() {
@@ -71,7 +67,12 @@ public class Emprestimo {
 
     @Override
     public String toString() {
-        return "Emprestimo [id=" + id + ", livro=" + livro + ", membro=" + membro + 
-               ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", status=" + status + "]";
+        return "\nId: " + id
+        + "\nMembro: " + membro.getNome()
+        + "\nLivro: " + livro.getTitulo()
+        + "\nData inicio: " + dataInicio
+        + "\nData fim: " + dataFim
+        + "\nStatus: " + status.getDescricao()
+        +"\n=================";
     }
 }
