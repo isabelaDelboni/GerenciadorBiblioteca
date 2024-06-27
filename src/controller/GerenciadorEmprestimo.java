@@ -45,6 +45,10 @@ public class GerenciadorEmprestimo implements Gerenciador<Emprestimo> {
         return null;
     }
 
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
     public Emprestimo buscaPorId(int id) {
         for (Emprestimo emprestimo : emprestimos) {
             if (emprestimo.getIdEmprestimo() == id) {

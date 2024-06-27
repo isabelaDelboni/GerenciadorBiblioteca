@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Livraria {
     private GerenciadorLivros gerenciadorLivros;
     private GerenciadorMembros gerenciadorMembros;

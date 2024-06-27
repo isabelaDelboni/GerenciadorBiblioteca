@@ -20,17 +20,18 @@ public class GerenciadorFuncionario implements Gerenciador<Funcionario> {
 
     @Override
     public void remove(Funcionario funcionario) {
-        funcionarios.remove(funcionario);
-
+        if (!funcionarios.contains(funcionario)) {
+            throw new IllegalArgumentException("Erro: Funcionario não encontrado na lista.");
+        }
         escreverArquivo();
     }
 
     @Override
     public void update(Funcionario funcionario) {
         int index = funcionarios.indexOf(funcionario);
-
-        if (index != -1) {
-            funcionarios.set(index, funcionario);
+        
+        if (index == -1) {
+            throw new IllegalArgumentException("Erro: Funcionario não encontrado na lista.");
         }
 
         escreverArquivo();

@@ -96,7 +96,7 @@ public class MenuEmprestimo {
     private void finalizarEmprestimo() {
         System.out.println("\n==== Finalizar Empréstimos ====");
 
-        System.out.println(livraria.getGerenciadorLivros().listar());
+        System.out.println(livraria.getGerenciadorEmprestimos().listar());
         
         System.out.print("ID do Livro: ");
         int idLivro = inputs.getIntInput();
@@ -107,7 +107,7 @@ public class MenuEmprestimo {
             return;
         }
 
-        List<Emprestimo> emprestimos = livraria.getGerenciadorEmprestimos().listar();
+        List<Emprestimo> emprestimos = livraria.getGerenciadorEmprestimos().getEmprestimos();
         for (Emprestimo emprestimo : emprestimos) {
             if (emprestimo.getLivro().getIdLivro() == idLivro && emprestimo.getStatus() == StatusEmprestimo.EM_EMPRESTIMO) {
                 emprestimo.finalizarEmprestimo();

@@ -2,7 +2,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Emprestimo implements Serializable{
-    private static int contadorId = 0;
     private int idEmprestimo;
     private Livro livro;
     private Membro membro;
@@ -78,6 +77,7 @@ public class Emprestimo implements Serializable{
     public String toString() {
         return "\nId: " + idEmprestimo
         + "\nMembro: " + membro.getNome()
+        + "\nID Livro: " + livro.getIdLivro()
         + "\nLivro: " + livro.getTitulo()
         + "\nData inicio: " + dataInicio
         + "\nData fim: " + dataFim

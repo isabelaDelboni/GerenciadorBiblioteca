@@ -12,17 +12,27 @@ public class MenuFuncionarios {
     }
 
     public void displayMenuFuncionarios() {
-        int op;
-
+        int op = -1;
+    
         do {
             System.out.println("\n==== Gerenciar Funcionários ====");
             System.out.println("1. Adicionar Funcionário");
             System.out.println("2. Remover Funcionário");
             System.out.println("3. Listar Funcionários");
             System.out.println("4. Voltar");
-            System.out.print("Escolha uma opção: ");
-            op = inputs.getIntInput();
-
+            
+            boolean entradaValida = false;
+            while (!entradaValida) {
+                System.out.print("Escolha uma opção: ");
+                String entrada = inputs.getStringInput();
+                try {
+                    op = Integer.parseInt(entrada);
+                    entradaValida = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida. Digite um número entre 1 e 4.");
+                }
+            }
+    
             switch (op) {
                 case 1:
                     adicionarFuncionario();
@@ -37,7 +47,7 @@ public class MenuFuncionarios {
                     System.out.println("Voltando...");
                     break;
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opção inválida! Digite um número entre 1 e 4.");
             }
         } while (op != 4);
     }
